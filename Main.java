@@ -4,8 +4,8 @@ import java.util.*;
 class Main {
   public static void main(String[] args) {
 
-    char [] arr1 = {'a','b','c','x'};
-    char [] arr2 = {'p','q','r','z'};
+    char [] arr1 = {'a','b','p','x'};
+    char [] arr2 = {'z','q','r','z'};
 
     Main mn = new Main();
     boolean isPresent = mn.isCommonitemPresent(arr1, arr2);
@@ -13,11 +13,7 @@ class Main {
   }
 
   boolean isCommonitemPresent(char[] arr1, char[] arr2) {
-
-    HashSet<Character> hs = new HashSet<Character>();
-    for(char c : arr1) {
-      hs.add(c);
-    }
+    HashSet<Character> hs = gethashSet(arr1);
 
     for(char c : arr2) {
       if(hs.contains(c)) {
@@ -26,4 +22,13 @@ class Main {
     }
     return false;
   }
+
+  private HashSet<Character> gethashSet(char[] arr1) {
+    HashSet<Character> hs = new HashSet<Character>();
+    for(char c : arr1) {
+      hs.add(c);
+    }
+    return hs;
+  }
+
 }
